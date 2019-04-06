@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[tar.md]]></title>
+    <url>%2F2019%2F04%2F06%2Ftar%2F</url>
+    <content type="text"><![CDATA[解压.tar.gz文件1tar -xvf source.tar.gz]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[start]]></title>
     <url>%2F2019%2F03%2F22%2Fstart%2F</url>
     <content type="text"><![CDATA[1234567#include &lt;bits/stc++.h&gt;using namespace std;int main() &#123; cout &lt;&lt; &quot;hello, hexo!&quot; &lt;&lt; &quot;\n&quot;; return 0;&#125;]]></content>
