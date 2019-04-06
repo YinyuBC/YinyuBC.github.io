@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[bug]]></title>
+    <url>%2F2019%2F04%2F06%2Fbug%2F</url>
+    <content type="text"><![CDATA[1interruptstubs.s: Warning: end of file not at end of a line; newline inserted Solution: By adding a newline at the end of the file !]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[tar]]></title>
     <url>%2F2019%2F04%2F06%2Ftar%2F</url>
     <content type="text"><![CDATA[解压.tar.gz文件1tar -xvf source.tar.gz]]></content>
