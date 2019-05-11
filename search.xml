@@ -1,85 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>virtual function</title>
-      <link href="/2019/05/11/virtual-function/"/>
-      <url>/2019/05/11/virtual-function/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://study.163.com/course/courseLearn.htm?courseId=271005#/learn/video?lessonId=394166&amp;courseId=271005" target="_blank" rel="noopener">https://study.163.com/course/courseLearn.htm?courseId=271005#/learn/video?lessonId=394166&amp;courseId=271005</a></p><p>翁恺老师在视频的4:25中提到”只要在它的继承树当中某一个祖先的函数被设为virtual,以后子子孙孙不管你说不说,都默认为virtual”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class A</span><br><span class="line">&#123;</span><br><span class="line">int va;</span><br><span class="line">public:</span><br><span class="line">A() &#123;</span><br><span class="line">va = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A(int a) &#123;</span><br><span class="line">va = a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">virtual void disp();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void A::disp()</span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; &quot;va = &quot; &lt;&lt; va &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B: public A</span><br><span class="line">&#123;</span><br><span class="line">int vb;</span><br><span class="line">public:</span><br><span class="line">B(): A() &#123;</span><br><span class="line">vb = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B(int a, int b): A(a) &#123;</span><br><span class="line">vb = b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void disp(); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void B::disp()</span><br><span class="line">&#123;</span><br><span class="line">A::disp();</span><br><span class="line">cout &lt;&lt; &quot;vb = &quot; &lt;&lt; vb &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C: public B</span><br><span class="line">&#123;</span><br><span class="line">int vc;</span><br><span class="line">public:</span><br><span class="line">C(): B() &#123;</span><br><span class="line">vc = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C(int a, int b, int c): B(a, b) &#123;</span><br><span class="line">vc = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void disp();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void C::disp() &#123;</span><br><span class="line">B::disp();</span><br><span class="line">cout &lt;&lt; &quot;vc = &quot; &lt;&lt; vc &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">A dt1(10);</span><br><span class="line">B dt2(200, 300);</span><br><span class="line">C dt3(4000, 5000, 6000);</span><br><span class="line"></span><br><span class="line">A* p;</span><br><span class="line">p = &amp;dt1;</span><br><span class="line">p-&gt;disp();</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">p = &amp;dt2;</span><br><span class="line">p-&gt;disp();</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">p = &amp;dt3;</span><br><span class="line">p-&gt;disp();</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="/images/virtual-function/a.png" alt></p><p>将main函数修改如下</p><p>发现即使class B中disp()前未加virtual,但因为它的祖先A的disp()被设为virtual,以后子子孙孙不管你说不说,都默认为virtual,所以虚函数仍可用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">A dt1(10);</span><br><span class="line">B dt2(200, 300);</span><br><span class="line">C dt3(4000, 5000, 6000);</span><br><span class="line"></span><br><span class="line">B* p;</span><br><span class="line">//p = &amp;dt1;</span><br><span class="line">//p-&gt;disp();</span><br><span class="line">//printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">p = &amp;dt2;</span><br><span class="line">p-&gt;disp();</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">p = &amp;dt3;</span><br><span class="line">p-&gt;disp();</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><img src="/images/virtual-function/b.png" alt></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>img2vdi</title>
-      <link href="/2019/04/13/img2vdi/"/>
-      <url>/2019/04/13/img2vdi/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vboxmanage convertfromraw bin/ucore.img ucore.vdi</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>bug</title>
-      <link href="/2019/04/06/bug/"/>
-      <url>/2019/04/06/bug/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interruptstubs.s: Warning: end of file not at end of a line; newline inserted</span><br></pre></td></tr></table></figure><p>Solution: By adding a newline at the end of the file !</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>tar</title>
-      <link href="/2019/04/06/tar/"/>
-      <url>/2019/04/06/tar/</url>
-      
-        <content type="html"><![CDATA[<p>解压.tar.gz文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf source.tar.gz</span><br></pre></td></tr></table></figure></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>start</title>
-      <link href="/2019/03/22/start/"/>
-      <url>/2019/03/22/start/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    cout &lt;&lt; &quot;hello, hexo!&quot; &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>bc</title>
-      <link href="/2019/03/22/bc/"/>
-      <url>/2019/03/22/bc/</url>
-      
-        <content type="html"><![CDATA[<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><p><strong>这是加粗</strong></p><p><em>这是斜体</em></p><p><del>这是横线</del></p><ul><li>无序列表</li><li>无序列表</li></ul><ol><li>有序列表1</li><li>有序列表2</li></ol><p><code>内嵌代码</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure><blockquote><p>引用</p></blockquote>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[virtual function]]></title>
+    <url>%2F2019%2F05%2F11%2Fvirtual-function%2F</url>
+    <content type="text"><![CDATA[https://study.163.com/course/courseLearn.htm?courseId=271005#/learn/video?lessonId=394166&amp;courseId=271005 翁恺老师在视频的4:25中提到“只要在它的继承树当中某一个祖先的函数被设为virtual，以后子子孙孙不管你说不说，都默认为virtual” 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485#include &lt;iostream&gt;using namespace std;class A&#123; int va;public: A() &#123; va = 0; &#125; A(int a) &#123; va = a; &#125; virtual void disp();&#125;;void A::disp()&#123; cout &lt;&lt; &quot;va = &quot; &lt;&lt; va &lt;&lt; &quot;\n&quot;;&#125;class B: public A&#123; int vb;public: B(): A() &#123; vb = 0; &#125; B(int a, int b): A(a) &#123; vb = b; &#125; void disp(); &#125;;void B::disp()&#123; A::disp(); cout &lt;&lt; &quot;vb = &quot; &lt;&lt; vb &lt;&lt; &quot;\n&quot;;&#125;class C: public B&#123; int vc;public: C(): B() &#123; vc = 0; &#125; C(int a, int b, int c): B(a, b) &#123; vc = c; &#125; void disp();&#125;;void C::disp() &#123; B::disp(); cout &lt;&lt; &quot;vc = &quot; &lt;&lt; vc &lt;&lt; &quot;\n&quot;;&#125;int main()&#123; A dt1(10); B dt2(200, 300); C dt3(4000, 5000, 6000); A* p; p = &amp;dt1; p-&gt;disp(); printf(&quot;\n&quot;); p = &amp;dt2; p-&gt;disp(); printf(&quot;\n&quot;); p = &amp;dt3; p-&gt;disp(); printf(&quot;\n&quot;); return 0;&#125; 将main函数修改如下 发现即使class B中disp()前未加virtual,但因为它的祖先A的disp()被设为virtual，以后子子孙孙不管你说不说，都默认为virtual，所以虚函数仍可用123456789101112131415161718192021int main()&#123; A dt1(10); B dt2(200, 300); C dt3(4000, 5000, 6000); B* p;// p = &amp;dt1;// p-&gt;disp();// printf(&quot;\n&quot;); p = &amp;dt2; p-&gt;disp(); printf(&quot;\n&quot;); p = &amp;dt3; p-&gt;disp(); printf(&quot;\n&quot;); return 0;&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[img2vdi]]></title>
+    <url>%2F2019%2F04%2F13%2Fimg2vdi%2F</url>
+    <content type="text"><![CDATA[1vboxmanage convertfromraw bin/ucore.img ucore.vdi]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[bug]]></title>
+    <url>%2F2019%2F04%2F06%2Fbug%2F</url>
+    <content type="text"><![CDATA[1interruptstubs.s: Warning: end of file not at end of a line; newline inserted Solution: By adding a newline at the end of the file !]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[tar]]></title>
+    <url>%2F2019%2F04%2F06%2Ftar%2F</url>
+    <content type="text"><![CDATA[解压.tar.gz文件1tar -xvf source.tar.gz]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[start]]></title>
+    <url>%2F2019%2F03%2F22%2Fstart%2F</url>
+    <content type="text"><![CDATA[1234567#include &lt;bits/stc++.h&gt;using namespace std;int main() &#123; cout &lt;&lt; &quot;hello, hexo!&quot; &lt;&lt; &quot;\n&quot;; return 0;&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[bc]]></title>
+    <url>%2F2019%2F03%2F22%2Fbc%2F</url>
+    <content type="text"><![CDATA[标题一标题二标题三标题四标题五这是加粗 这是斜体 这是横线 无序列表 无序列表 有序列表1 有序列表2 内嵌代码 1代码块 引用]]></content>
+  </entry>
 </search>
